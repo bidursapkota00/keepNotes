@@ -5,7 +5,7 @@ import NotesList from '../components/notesList';
 const Home = ({ navigation }) => {
   return (
     <>
-    <NotesList />
+    <NotesList navigation={navigation}/>
     <PlusIcon navigation={navigation} />
     </>
   );

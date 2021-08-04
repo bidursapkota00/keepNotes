@@ -15,7 +15,7 @@ export function addNotes(notes) {
 export function editNotes(notes) {
   return {
     type: EDIT_NOTES,
-    payload: {notes},
+    payload: notes,
   };
 }
 export function deleteNotes(id) {

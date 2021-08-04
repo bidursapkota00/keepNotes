@@ -38,10 +38,29 @@ export const addReducer = (state = initialState, action) => {
     case DELETE_NOTES:
       let items = {
         ...state,
-        Notes: state.Notes.filter(item => item.key !== action.payload.id)
+        Notes: state.Notes.filter(item => item.key !== action.payload.id),
+      };
+      _storeData(items.Notes);
+      return items;
+
+    case EDIT_NOTES:
+      let info = action.payload;
+      let edited = {
+        ...state,
+        Notes: state.Notes.filter(item => item.key !== info.k),
       }
-      _storeData(items.Notes)
-      return items
+      
+      edited = {
+        ...state,
+        Notes: edited.Notes.concat({
+          key: info.k,
+          title: info.title,
+          description: info.description,
+        }),
+      };
+      
+      _storeData(edited.Notes);
+      return edited;
 
     default:
       return state;
