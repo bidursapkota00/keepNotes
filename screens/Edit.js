@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {editNotes} from '../actions/notes';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 
 const Edit = ({route}) => {
@@ -15,13 +15,15 @@ const Edit = ({route}) => {
     nav.navigate('Home');
   };
   return (
-    <>
+    <View style={{margin: 15}}>
       <TextInput
+        style={{fontSize: 25, fontWeight: 'bold'}}
         name="Title"
         onChangeText={title => setTitle(title)}
         defaultValue={title}
       />
       <TextInput
+        style={{fontSize: 15, fontWeight: 'bold'}}
         name="Description"
         multiline={true}
         numberOfLines={7}
@@ -33,9 +35,9 @@ const Edit = ({route}) => {
         onPress={() => {
           submitNotes({title, description, k});
         }}>
-        <Text style={{fontSize: 22, color: '#5fc9f8'}}>Submit</Text>
+        <Text style={{fontSize: 22, color: 'purple', fontWeight: 'bold'}}>Edit</Text>
       </TouchableOpacity>
-    </>
+    </View>
   );
 };
 

@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {addNotes, listNotes} from '../actions/notes';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 
 const Add = ({navigation}) => {
- 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const dispatch = useDispatch();
@@ -14,13 +13,15 @@ const Add = ({navigation}) => {
     navigation.navigate('Home');
   };
   return (
-    <>
+    <View style={{margin: 15}}>
       <TextInput
+        style={{fontSize: 25, fontWeight: 'bold'}}
         name="Title"
         onChangeText={title => setTitle(title)}
         placeholder={'Title'}
       />
       <TextInput
+        style={{fontSize: 15, fontWeight: 'bold'}}
         name="Description"
         multiline={true}
         numberOfLines={7}
@@ -32,9 +33,11 @@ const Add = ({navigation}) => {
         onPress={() => {
           submitNotes({title, description});
         }}>
-        <Text style={{fontSize: 22, color: '#5fc9f8'}}>Submit</Text>
+        <Text style={{fontSize: 22, color: 'purple', fontWeight: 'bold'}}>
+          Submit
+        </Text>
       </TouchableOpacity>
-    </>
+    </View>
   );
 };
 
