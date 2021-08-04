@@ -17,21 +17,18 @@ let initialState = {
 export const addReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTES:
-      let note = action.payload;
-      let sample = [];
-      AsyncStorage.getItem('notes').then((data, err) => {
-        sample = data;
-        state.Notes = JSON.parse(sample);
-        return state;
-      });
-    // let notes = {
-    //   ...state,
-    //   Notes: state.Notes.concat({
-    //     key: Math.random(),
-    //     title: note.title,
-    //     description: note.description,
-    //   }),
-    // };
+      let data = action.payload;
+
+      let note = {
+        ...state,
+        Notes: state.Notes.concat({
+          key: Math.random(),
+          title: data.title,
+          description: data.description,
+        }),
+      };
+      _storeData(note.Notes)
+      return note
 
     case LIST_NOTES:
       let notes = action.payload;
