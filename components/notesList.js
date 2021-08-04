@@ -21,7 +21,7 @@ const NotesList = () => {
         (data) =>
         <View style={styles.list}>
           <Text style={styles.text}>{data.item.title}</Text>
-          <DeleteIcon/>
+          <DeleteIcon id={data.item.key}/>
         </View>
       }
     />

@@ -27,13 +27,21 @@ export const addReducer = (state = initialState, action) => {
           description: data.description,
         }),
       };
-      _storeData(note.Notes)
-      return note
+      _storeData(note.Notes);
+      return note;
 
     case LIST_NOTES:
       let notes = action.payload;
       state.Notes = JSON.parse(notes);
       return state;
+
+    case DELETE_NOTES:
+      let items = {
+        ...state,
+        Notes: state.Notes.filter(item => item.key !== action.payload.id)
+      }
+      _storeData(items.Notes)
+      return items
 
     default:
       return state;

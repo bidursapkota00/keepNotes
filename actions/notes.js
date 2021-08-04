@@ -1,4 +1,4 @@
-import {ADD_NOTES, LIST_NOTES} from '../constants';
+import {ADD_NOTES, LIST_NOTES, EDIT_NOTES, DELETE_NOTES} from '../constants';
 
 export function listNotes(notes) {
   return {
@@ -12,16 +12,16 @@ export function addNotes(notes) {
     payload: notes,
   };
 }
-export function editNotes(id) {
+export function editNotes(notes) {
   return {
-    type: ADD_NOTES,
-    payload: {id},
+    type: EDIT_NOTES,
+    payload: {notes},
   };
 }
-export function deleteNotes(notes) {
+export function deleteNotes(id) {
   return {
-    type: ADD_NOTES,
-    payload: {notes},
+    type: DELETE_NOTES,
+    payload: id,
   };
 }
 
