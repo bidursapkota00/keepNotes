@@ -32,7 +32,9 @@ export const addReducer = (state = initialState, action) => {
 
     case LIST_NOTES:
       let notes = action.payload;
-      state.Notes = JSON.parse(notes);
+      if(notes) {
+        state.Notes = JSON.parse(notes);
+      }
       return state;
 
     case DELETE_NOTES:

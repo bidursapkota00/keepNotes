@@ -7,7 +7,7 @@ const Details = ({route, navigation}) => {
   return (
     <>
     <Text style={{fontSize: 25, fontWeight: 'bold', margin: 15}}>{title}</Text>
-    <Text style={{fontSize: 15, fontweight: 200, margin: 15}}>{description}</Text>
+    <Text style={{fontSize: 15, fontWeight: 'bold', margin: 15}}>{description}</Text>
     <EditIcon tit={title} des={description} k={route.params.key} nav={navigation}/>
     </>
   );
