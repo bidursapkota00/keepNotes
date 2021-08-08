@@ -17,13 +17,13 @@ const Edit = ({route}) => {
   return (
     <View style={{margin: 15}}>
       <TextInput
-        style={{fontSize: 25, fontWeight: 'bold'}}
+        style={{fontSize: 25, fontWeight: 'bold', color: 'black'}}
         name="Title"
         onChangeText={title => setTitle(title)}
         defaultValue={title}
       />
       <TextInput
-        style={{fontSize: 15, fontWeight: 'bold'}}
+        style={{fontSize: 15, fontWeight: 'bold', color: 'black'}}
         name="Description"
         multiline={true}
         numberOfLines={7}

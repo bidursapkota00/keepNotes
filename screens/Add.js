@@ -15,17 +15,19 @@ const Add = ({navigation}) => {
   return (
     <View style={{margin: 15}}>
       <TextInput
-        style={{fontSize: 25, fontWeight: 'bold'}}
+        style={{fontSize: 25, fontWeight: 'bold', color: 'black'}}
         name="Title"
         onChangeText={title => setTitle(title)}
         placeholder={'Title'}
+        placeholderTextColor='green'
       />
       <TextInput
-        style={{fontSize: 15, fontWeight: 'bold'}}
+        style={{fontSize: 15, fontWeight: 'bold', color: 'black'}}
         name="Description"
         multiline={true}
         numberOfLines={7}
         placeholder={'Description'}
+        placeholderTextColor='green'
         onChangeText={description => setDescription(description)}
       />
       <TouchableOpacity

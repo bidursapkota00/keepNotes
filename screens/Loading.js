@@ -17,7 +17,7 @@ export default function LoadingScreen(props) {
       } else {
         dispatch(listNotes(data));
       }
-      props.navigation.navigate('Home');
+      props.navigation.replace('Home');
     });
   }
 

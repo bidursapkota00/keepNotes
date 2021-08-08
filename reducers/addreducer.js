@@ -18,21 +18,20 @@ export const addReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTES:
       let data = action.payload;
-
-      let note = {
-        ...state,
-        Notes: state.Notes.concat({
+      let temp = [
+        {
           key: Math.random(),
           title: data.title,
           description: data.description,
-        }),
-      };
-      _storeData(note.Notes);
-      return note;
+        },
+        ...state.Notes,
+      ];
+      _storeData(temp);
+      return {Notes: temp};
 
     case LIST_NOTES:
       let notes = action.payload;
-      if(notes) {
+      if (notes) {
         state.Notes = JSON.parse(notes);
       }
       return state;
@@ -47,22 +46,17 @@ export const addReducer = (state = initialState, action) => {
 
     case EDIT_NOTES:
       let info = action.payload;
-      let edited = {
-        ...state,
-        Notes: state.Notes.filter(item => item.key !== info.k),
-      }
-      
-      edited = {
-        ...state,
-        Notes: edited.Notes.concat({
+      let edited = state.Notes.filter(item => item.key !== info.k)
+      let tem = [
+        {
           key: info.k,
           title: info.title,
           description: info.description,
-        }),
-      };
-      
-      _storeData(edited.Notes);
-      return edited;
+        },
+        ...edited
+      ];
+      _storeData(tem);
+      return {Notes: tem};
 
     default:
       return state;
